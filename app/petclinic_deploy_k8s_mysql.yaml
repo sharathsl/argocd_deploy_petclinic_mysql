@@ -33,7 +33,7 @@ spec:
         app: petclinic
         tier: frontend
     spec:
-#      hostNetwork: true
+      hostNetwork: true
       containers:
         - name: petclinic-app
           image: sharath2787/petclinic:3
