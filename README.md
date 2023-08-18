@@ -1,6 +1,6 @@
 # Run below steps to deploy petclinic app integrated with mysql db using Argocd, provided argocd is running already.
 
-Here are the steps and sample. All these commands were run through **GITBASH**
+Here are the steps and sample output. All these commands were run through **GITBASH**
 ```
 $ kubectl create -f db.yaml
 application.argoproj.io/petclinic-db created
