@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: petclinic-db
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/sharathsl/argocd_deploy_petclinic_mysql.git
+    targetRevision: petclinic_db
+    path: db
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: app
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
