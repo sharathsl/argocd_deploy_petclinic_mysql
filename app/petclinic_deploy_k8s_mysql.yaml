@@ -57,7 +57,7 @@ spec:
         nameservers:
         - 10.100.0.10
         searches:
-          - default.svc.cluster.local
+          - app.svc.cluster.local
           - svc.cluster.local
           - cluster.local
           - us-west-2.compute.internal
