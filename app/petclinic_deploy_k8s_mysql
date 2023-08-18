@@ -1,0 +1,63 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: petclinic-service
+spec:
+  selector:
+    app: petclinic
+    tier: frontend
+  ports:
+    - name: http
+      protocol: TCP
+      nodePort: 30756
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: petclinic-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: petclinic
+      tier: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: petclinic
+        tier: frontend
+    spec:
+      hostNetwork: true
+      containers:
+        - name: petclinic-app
+          image: sharath2787/petclinic:3
+          env:
+            - name: MYSQL_URL
+              value: "jdbc:mysql://mysql-service/petclinic"
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-credentials
+                  key: username
+            - name: MYSQL_PASS
+              valueFrom:
+                 secretKeyRef:
+                   name: mysql-credentials
+                   key: password
+          ports:
+            - containerPort: 8080
+      dnsPolicy: None
+      dnsConfig:
+        nameservers:
+        - 10.100.0.10
+        searches:
+          - default.svc.cluster.local
+          - svc.cluster.local
+          - cluster.local
+          - us-west-2.compute.internal
