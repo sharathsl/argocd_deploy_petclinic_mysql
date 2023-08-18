@@ -1,11 +1,14 @@
 # Run below steps to deploy using Argocd, provided argocd is running already.
 
 Here are the steps and sample. All these commands were run through **GITBASH**
+
 $ kubectl create -f db.yaml
 application.argoproj.io/petclinic-db created
+
 $ kubectl get pvc -n app
 NAME        STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS        AGE
 mysql-pvc   Bound    pvc-34177950-77fb-422d-8bca-5b20b77a4477   2Gi        RWO            ebs-storage-class   49s
+
 $ kubectl get pods -n app
 NAME                        READY   STATUS    RESTARTS   AGE
 mysql-db-7d8cc9857b-cfrdp   1/1     Running   0          30s
