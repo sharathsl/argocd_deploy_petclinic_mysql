@@ -1,7 +1,7 @@
 # Run below steps to deploy using Argocd, provided argocd is running already.
 
 Here are the steps and sample. All these commands were run through **GITBASH**
-
+```
 $ kubectl create -f db.yaml
 application.argoproj.io/petclinic-db created
 
@@ -71,7 +71,8 @@ mysql> select * from owners;
 |  8 | Maria          | Escobito             | 345 Maple St.         | Madison             | 6085557683 |
 |  9 | David          | Schroeder            | 2749 Blackhawk Trail  | Madison             | 6085559435 |
 | 10 | Carlos         | Estaban              | 2335 Independence La. | Waunakee            | 6085555487 |
-| **11 | yyyyyyyyyyyyyy | xxxxxxxxxxxxx        | xxxxxxxxxxxxxxxx      | xxxxxxxxxxxxxxx     | 999999999**  |
-| **12 | yyyyyyyyyyyyyy | zzzzzzzzzzzzzzzzzzzz | xxxxxxxxxxxxxxxxxxx   | yyyyyyyyyyyyyyyyyyy | 999999999**  |
+| 11 | yyyyyyyyyyyyyy | xxxxxxxxxxxxx        | xxxxxxxxxxxxxxxx      | xxxxxxxxxxxxxxx     | 999999999  | UPDATED USING GUI
+| 12 | yyyyyyyyyyyyyy | zzzzzzzzzzzzzzzzzzzz | xxxxxxxxxxxxxxxxxxx   | yyyyyyyyyyyyyyyyyyy | 999999999* | UPDATED USING GUI
 +----+----------------+----------------------+-----------------------+---------------------+------------+
 12 rows in set (0.00 sec)
+```
