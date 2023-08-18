@@ -39,7 +39,7 @@ spec:
           image: sharath2787/petclinic:3
           env:
             - name: MYSQL_URL
-              value: "jdbc:mysql://mysql-service/petclinic"
+              value: "jdbc:mysql://mysql-service:3306/petclinic"
             - name: MYSQL_USER
               valueFrom:
                 secretKeyRef:
