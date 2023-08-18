@@ -8,7 +8,7 @@ spec:
 
   source:
     repoURL: https://github.com/sharathsl/argocd_deploy_petclinic_mysql.git
-    targetRevision: petclinic-db
+    targetRevision: dev
     path: db
   destination:
     server: https://kubernetes.default.svc
